@@ -17,8 +17,37 @@ object JsonTestApp extends App {
   val rootNode:myelement = objectMapper.readValue[myelement](jSonString)
   println(rootNode)
 
-  getValue(rootNode, "a")
-  println(p)
+  var key: String = null
+
+  {
+    key = "a"
+    getValue(rootNode, key)
+    printValues
+  }
+
+  {
+    key  = "b"
+    getValue(rootNode, key)
+    printValues
+  }
+
+  {
+    key = "c"
+    getValue(rootNode, key)
+    printValues
+  }
+
+  {
+    key  = "g"
+    getValue(rootNode, key)
+    printValues
+  }
+
+
+
+
+
+  def printValues = println(s"key: $key ------> $p")
 
   def getValue(rootNode: myelement, key: String): AnyRef = {
     assert(!key.isEmpty)
@@ -35,4 +64,5 @@ object JsonTestApp extends App {
     }
     p
   }
+
 }
